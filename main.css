@@ -6,11 +6,6 @@
     color-scheme: light dark;
     color: rgba(255, 255, 255, 0.87);
     background-color: #242424;
-
-    font-synthesis: none;
-    text-rendering: optimizeLegibility;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
 }
 
 * {
@@ -38,4 +33,10 @@ body {
     grid-template-columns: repeat(auto-fill, minmax(128px, 1fr));
     gap: 24px;
     width: 100%;
+}
+
+.imagen {
+    border: 1px solid #666;
+    border-radius: 12px;
+    cursor: pointer;
 }
