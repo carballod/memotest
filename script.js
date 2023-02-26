@@ -19,4 +19,20 @@ const duplicarImagenes = function(){
     })
 }
 
-duplicarImagenes();
+const mezclarImagenes = function(){
+    IMAGENES
+    .flatMap((imagen) => [imagen, imagen])
+    .sort(() => Math.random() - 0.5)
+    .forEach((imagen, index) => {
+        imagen.style.order = index;
+    }
+    )
+};
+
+
+const iniciar = function(){
+    duplicarImagenes();
+    mezclarImagenes();
+}
+
+iniciar();
