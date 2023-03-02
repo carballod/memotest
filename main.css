@@ -1,5 +1,5 @@
 :root {
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     line-height: 1.5;
     font-weight: 400;
 
@@ -19,12 +19,12 @@ img {
     height: auto;
 }
 
-body {
+div {
     margin: auto;
     display: flex;
     place-items: center;
     max-width: 800px;
-    min-height: 100vh;
+    min-height: 96vh;
 }
 
 #imagenes {
@@ -50,4 +50,20 @@ body {
     border: 1px solid #666;
     border-radius: 12px;
     cursor: pointer;
+}
+
+footer {
+    font-size: 0.7rem;
+    text-align: center;
+    padding: 0.5rem;
+    color: #666;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+footer a {
+    color: #666;
+    text-decoration: none;
 }
