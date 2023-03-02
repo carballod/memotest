@@ -32,10 +32,6 @@ const duplicarImagenes = function(){
     })
 }
 
-const reiniciarImagenes = function(){
-    IMAGENES = [imagen1, imagen2, imagen3, imagen4, imagen5, imagen6, imagen7, imagen8, imagen9, imagen10]
-}
-
 const ocultarImagenes = function(){
     IMAGENES.forEach((imagen) => {
         imagen.classList.add('ocultar');
