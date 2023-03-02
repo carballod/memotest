@@ -32,6 +32,10 @@ const duplicarImagenes = function(){
     })
 }
 
+const reiniciarImagenes = function(){
+    IMAGENES = [imagen1, imagen2, imagen3, imagen4, imagen5, imagen6, imagen7, imagen8, imagen9, imagen10]
+}
+
 const ocultarImagenes = function(){
     IMAGENES.forEach((imagen) => {
         imagen.classList.add('ocultar');
@@ -66,7 +70,7 @@ let parejaDeImagenes = 0;
 let puedeSeleccionar = true;
 
 const ronda = function(event){
-    if (!puedeSeleccionar) { // Verificar si el jugador puede seleccionar
+    if (!puedeSeleccionar) { 
         return;
     }
 
@@ -87,8 +91,12 @@ const ronda = function(event){
         parejaDeImagenes++;
     }
 
-    if(parejaDeImagenes === IMAGENES.length / 2) alert('Ganaste!');
-    else if(seleccionImagen1 && seleccionImagen2){
+    if(parejaDeImagenes === IMAGENES.length / 2){
+        setTimeout(() => {
+            alert('Ganaste!');
+            location.reload();
+        }, 500);
+    } else if(seleccionImagen1 && seleccionImagen2){
         puedeSeleccionar = false;
         setTimeout(() => {
             mostrarImagenesSeleccionadas(seleccionImagen1, seleccionImagen2);
@@ -110,7 +118,5 @@ const iniciarJuego = function(){
         imagen.addEventListener('click', ronda);
     });
 }
-
-
 
 iniciarJuego();
