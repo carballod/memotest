@@ -54,17 +54,29 @@ const mostrarImagenesSeleccionadas = function(imagen1, imagen2){
     imagen2.classList.add('ocultar');
 }
 
+const inhabilitarJugador = function(){
+    IMAGENES.forEach((imagen) => {
+        imagen.onclick = () => {};
+    });
+}
+
 let seleccionImagen1 = null;
 let seleccionImagen2 = null;
 let parejaDeImagenes = 0;
+let puedeSeleccionar = true;
 
 const ronda = function(event){
+    if (!puedeSeleccionar) { // Verificar si el jugador puede seleccionar
+        return;
+    }
+
     const imagenSeleccionada = event.target;
     imagenSeleccionada.classList.remove('ocultar');
     imagenSeleccionada.classList.add('seleccionada');
 
     if(!seleccionImagen1) seleccionImagen1 = imagenSeleccionada;
     else if(!seleccionImagen2) seleccionImagen2 = imagenSeleccionada;
+
 
     if(seleccionImagen1.getAttribute('src') === seleccionImagen2.getAttribute('src')){
         seleccionImagen1.removeEventListener('click', ronda);
@@ -77,12 +89,14 @@ const ronda = function(event){
 
     if(parejaDeImagenes === IMAGENES.length / 2) alert('Ganaste!');
     else if(seleccionImagen1 && seleccionImagen2){
+        puedeSeleccionar = false;
         setTimeout(() => {
             mostrarImagenesSeleccionadas(seleccionImagen1, seleccionImagen2);
             seleccionImagen1.classList.remove('seleccionada');
             seleccionImagen2.classList.remove('seleccionada');
             seleccionImagen1 = null;
             seleccionImagen2 = null;
+            puedeSeleccionar = true;
         }, 1000);
     }
 }
