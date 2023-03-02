@@ -60,9 +60,31 @@ let parejaDeImagenes = 0;
 
 const ronda = function(event){
     const imagenSeleccionada = event.target;
-    if(imagenSeleccionada == seleccionImagen1) return;
+    imagenSeleccionada.classList.remove('ocultar');
+    imagenSeleccionada.classList.add('seleccionada');
 
+    if(!seleccionImagen1) seleccionImagen1 = imagenSeleccionada;
+    else if(!seleccionImagen2) seleccionImagen2 = imagenSeleccionada;
 
+    if(seleccionImagen1.getAttribute('src') === seleccionImagen2.getAttribute('src')){
+        seleccionImagen1.removeEventListener('click', ronda);
+        seleccionImagen2.removeEventListener('click', ronda);
+        ocultarImagenesSeleccionadas(seleccionImagen1, seleccionImagen2);
+        seleccionImagen1 = null;
+        seleccionImagen2 = null;
+        parejaDeImagenes++;
+    }
+
+    if(parejaDeImagenes === IMAGENES.length / 2) alert('Ganaste!');
+    else if(seleccionImagen1 && seleccionImagen2){
+        setTimeout(() => {
+            mostrarImagenesSeleccionadas(seleccionImagen1, seleccionImagen2);
+            seleccionImagen1.classList.remove('seleccionada');
+            seleccionImagen2.classList.remove('seleccionada');
+            seleccionImagen1 = null;
+            seleccionImagen2 = null;
+        }, 1000);
+    }
 }
 
 const iniciarJuego = function(){
