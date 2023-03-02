@@ -38,10 +38,20 @@ const ocultarImagenes = function(){
     });
 }
 
+const ocultarImagenesSeleccionadas = function(imagen1, imagen2){
+    imagen1.classList.remove('ocultar');
+    imagen2.classList.remove('ocultar');
+}
+
 const mostrarImagenes = function(){
     IMAGENES.forEach((imagen) => {
         imagen.classList.remove('ocultar');
     });
+}
+
+const mostrarImagenesSeleccionadas = function(imagen1, imagen2){
+    imagen1.classList.add('ocultar');
+    imagen2.classList.add('ocultar');
 }
 
 let seleccionImagen1 = null;
@@ -50,7 +60,9 @@ let parejaDeImagenes = 0;
 
 const ronda = function(event){
     const imagenSeleccionada = event.target;
-    
+    if(imagenSeleccionada == seleccionImagen1) return;
+
+
 }
 
 const iniciarJuego = function(){
