@@ -1,5 +1,5 @@
 :root {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: monospace;
     line-height: 1.5;
     font-weight: 400;
 
@@ -20,14 +20,15 @@ img {
 }
 
 div {
+    padding-top: 40px;
     margin: auto;
     display: flex;
     place-items: center;
     max-width: 800px;
-    min-height: 96vh;
+    min-height: 0;
 }
 
-#imagenes {
+.imagenes {
     padding: 1rem;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(128px, 1fr));
@@ -35,7 +36,7 @@ div {
     width: 100%;
 }
 
-#imagenes .ocultar {
+.imagenes .ocultar {
     position: relative;
     width: 100%;
     height: 0;
@@ -44,6 +45,7 @@ div {
     border-radius: 12px;
     cursor: pointer;
     background-color: rgb(33, 31, 31);
+    
 }
 
 .imagen {
@@ -59,9 +61,52 @@ footer {
     bottom: 0;
     left: 0;
     width: 100%;
+    margin-top: 20px;
 }
 
 footer a {
     color: #666;
     text-decoration: none;
 }
+
+
+/* cuando termina el juego */
+
+.fin-juego {
+    display: none;
+}
+
+.fin-juego-contenedor {
+    width: 500px;
+    min-height: 30%;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #d8c9c9;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: black;
+}
+
+button {
+    font-family: monospace;
+    font-size: 1.5rem;
+    color: #FAFAFA;
+    text-transform: uppercase;
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: 2px solid #FAFAFA;
+    background: #252525;
+    box-shadow: 3px 3px #fafafa;
+    cursor: pointer;
+    margin: 35px 0;
+  }
+  
+  button:active {
+    box-shadow: none;
+    transform: translate(3px, 3px);
+  }

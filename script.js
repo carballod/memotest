@@ -27,7 +27,7 @@ const duplicarImagenes = function(){
     IMAGENES.forEach((imagen, index) => {
         const imagenDuplicada = imagen.cloneNode(true);
         imagenDuplicada.id = `imagen${index + 11}`;
-        document.querySelector('#imagenes').appendChild(imagenDuplicada);
+        document.querySelector('.imagenes').appendChild(imagenDuplicada);
         IMAGENES.push(imagenDuplicada);
     })
 }
@@ -89,8 +89,7 @@ const ronda = function(event){
 
     if(parejaDeImagenes === IMAGENES.length / 2){
         setTimeout(() => {
-            alert('Ganaste!');
-            location.reload();
+            terminarRonda();
         }, 500);
     } else if(seleccionImagen1 && seleccionImagen2){
         puedeSeleccionar = false;
@@ -113,6 +112,16 @@ const iniciarJuego = function(){
     IMAGENES.forEach((imagen) => {
         imagen.addEventListener('click', ronda);
     });
+}
+
+const terminarRonda = function(){
+    const finJuego = document.querySelector('.fin-juego');
+    finJuego.style.display = "block";
+
+    reiniciar = document.querySelector('.reiniciar')
+    reiniciar.onclick = () => {
+        location.reload();
+    }
 }
 
 iniciarJuego();
