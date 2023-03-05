@@ -1,0 +1,29 @@
+{
+  "name": "memotest",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "scripts": {
+    "start":"http-server",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "cypress-run": "cypress run",
+    "cypress-dev": "cypress open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/carballod/cv-demo.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/carballod/cv-demo/issues"
+  },
+  "homepage": "https://github.com/carballod/cv-demo#readme",
+  "devDependencies": {
+    "cypress": "^12.7.0"
+  },
+  "dependencies": {
+    "http-server": "^14.1.1"
+  }
+}
