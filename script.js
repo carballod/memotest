@@ -66,11 +66,13 @@ let parejaDeImagenes = 0;
 let puedeSeleccionar = true;
 
 const ronda = function(event){
-    if (!puedeSeleccionar) { 
-        return;
-    }
+    if (!puedeSeleccionar) return;
 
     const imagenSeleccionada = event.target;
+    if (imagenSeleccionada.classList.contains('seleccionada') || seleccionImagen1 && seleccionImagen2) {
+        return;
+      }
+
     imagenSeleccionada.classList.remove('ocultar');
     imagenSeleccionada.classList.add('seleccionada');
 
